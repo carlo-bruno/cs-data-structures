@@ -17,10 +17,11 @@ class LinkedList {
    * @method size() -> returns the number of elements in the list
    * @method add(data) -> adds `new Node(data)` to the end of the LinkedList
    * @method remove(index) -> cut off node at index, reroute prev.next, delete head if index is omitted
+   * @method clear() -> removes all of the elements from list
    * @method insert(data,index) -> insert `new Node(data)` at index
    *
    * TODO: search(value) || indexOf(value) -> returns index of value, -1 if not found
-   * TODO: clear() -> removes all of the elements from list
+   * TODO: reverse() -> reverse linked list
    */
 
   printList() {
@@ -99,13 +100,13 @@ class LinkedList {
       return `Empty`;
     } else {
       let prev;
-      while (!current.next) {
+      while (current.next) {
         prev = current;
         current = current.next;
         prev.data = null;
         prev.next = null;
       }
-      current.data = null;
+      this.head = null;
     }
   }
 
@@ -128,28 +129,31 @@ class LinkedList {
   }
 }
 
-let ll = new LinkedList();
+// let ll = new LinkedList();
+// console.log(ll.printList())
 
-console.log(ll.size());
-ll.add('zero');
-ll.add('one');
-ll.add('two');
-ll.add('three');
-ll.add('four');
-ll.add('five');
-ll.add('six');
-ll.add('seven');
+// console.log(ll.size());
+// ll.add('zero');
+// ll.add('one');
+// ll.add('two');
+// ll.add('three');
+// ll.add('four');
+// ll.add('five');
+// ll.add('six');
+// ll.add('seven');
 
-ll.insert('inserted', 0);
-ll.insert('|five|', 5);
+// ll.insert('inserted', 0);
+// ll.insert('|five|', 5);
 
-ll.remove(6);
-ll.remove(1);
+// ll.remove(6);
+// ll.remove(1);
 
-ll.remove();
+// ll.remove();
 
-console.log(ll.printList());
+// console.log(ll.printList());
 
-console.log(ll.size());
-ll.clear();
-console.log(ll.size());
+// console.log(ll.size());
+// ll.clear();
+// console.log(ll.size());
+// console.log(ll.printList());
+// console.log(ll.head)
