@@ -19,9 +19,11 @@ class LinkedList {
    * @method remove(index) -> cut off node at index, reroute prev.next, delete head if index is omitted
    * @method clear() -> removes all of the elements from list
    * @method insert(data,index) -> insert `new Node(data)` at index
+   * @method reverse() -> reverse linked list
+   * TODO: reverse() recursive solution
    *
    * TODO: search(value) || indexOf(value) -> returns index of value, -1 if not found
-   * TODO: reverse() -> reverse linked list
+   * TODO: sort() -> sort linked list by size of data (integers to start)
    */
 
   printList() {
@@ -127,10 +129,25 @@ class LinkedList {
       current.next = newNode;
     }
   }
+
+  //* Iterative
+  reverse() {
+    let current = this.head;
+    let prev = null;
+    let next;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    this.head = prev;
+  }
 }
 
 // let ll = new LinkedList();
-// console.log(ll.printList())
+// console.log(ll.printList());
 
 // console.log(ll.size());
 // ll.add('zero');
@@ -153,7 +170,7 @@ class LinkedList {
 // console.log(ll.printList());
 
 // console.log(ll.size());
-// ll.clear();
-// console.log(ll.size());
+
 // console.log(ll.printList());
-// console.log(ll.head)
+// ll.reverse();
+// console.log(ll.printList());
