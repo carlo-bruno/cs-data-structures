@@ -28,7 +28,7 @@ class BinarySearchTree {
    * ✅ preorder(node)
    * ✅ postorder(node)
    *
-   * search(node,data)
+   * ✅ search(node,data)
    */
 
   insert(data) {

@@ -21,6 +21,7 @@ class LinkedList {
    * @method insert(data,index) -> insert `new Node(data)` at index
    * @method reverse() -> reverse linked list
    * TODO: reverse() recursive solution
+   * @method sumList() -> get the sum of numbers on a LinkedList
    *
    * TODO: search(value) || indexOf(value) -> returns index of value, -1 if not found
    * TODO: sort() -> sort linked list by size of data (integers to start)
@@ -144,20 +145,36 @@ class LinkedList {
     }
     this.head = prev;
   }
+
+  sumList() {
+    let current = this.head;
+    let sum = 0;
+    while (current) {
+      if (typeof current.data == 'number') {
+        sum += current.data;
+      }
+      current = current.next;
+    }
+
+    return sum;
+  }
 }
 
-// let ll = new LinkedList();
+let ll = new LinkedList();
 // console.log(ll.printList());
 
 // console.log(ll.size());
-// ll.add('zero');
-// ll.add('one');
-// ll.add('two');
-// ll.add('three');
-// ll.add('four');
-// ll.add('five');
-// ll.add('six');
-// ll.add('seven');
+ll.add(1);
+ll.add(1);
+ll.add(1);
+ll.add(1);
+ll.add('3');
+ll.add(1);
+ll.add(1);
+ll.add(1);
+console.log(ll.size());
+
+console.log(ll.sumList());
 
 // ll.insert('inserted', 0);
 // ll.insert('|five|', 5);
